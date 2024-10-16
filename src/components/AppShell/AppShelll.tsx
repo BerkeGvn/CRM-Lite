@@ -1,15 +1,32 @@
-import { AppShell, Burger, Group, Skeleton, useMantineTheme } from '@mantine/core';
+import { AppShell, Burger, Group, NavLink, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 
 interface BasicAppShellProps {
   children: ReactNode;
 }
+const data = [
+  { label: 'Dashboard', description: 'Item with description' },
+  { label: 'Contacts', description: 'Item with description' },
+  { label: 'Orders', description: 'Item with description' },
+];
 
 export function BasicAppShell({ children }: BasicAppShellProps) {
   const [opened, { toggle }] = useDisclosure();
+  const [active, setActive] = useState(0);
   const theme = useMantineTheme();
+
+  const items = data.map((item, index) => (
+    <NavLink
+      href="#"
+      key={item.label}
+      active={index === active}
+      label={item.label}
+      onClick={() => setActive(index)}
+      color="cyan"
+    />
+  ));
 
   return (
     <AppShell
@@ -31,18 +48,7 @@ export function BasicAppShell({ children }: BasicAppShellProps) {
           <h3>Kapia Corp.</h3>
         </Group>
       </AppShell.Header>
-      <AppShell.Navbar p="md">
-        {Array(15)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton
-              key={index}
-              h={28}
-              mt="sm"
-              animate={false}
-            />
-          ))}
-      </AppShell.Navbar>
+      <AppShell.Navbar p="md">{items}</AppShell.Navbar>
       <AppShell.Main
         style={{
           backgroundColor: theme.colors.gray[2],

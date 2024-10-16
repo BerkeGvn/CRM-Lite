@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <MantineProvider>
+    <MantineProvider theme={{ fontFamily: 'Lato, sans-serif' }}>
       <BasicAppShell>
         <div>
           <h1>CRM-Lite</h1>
