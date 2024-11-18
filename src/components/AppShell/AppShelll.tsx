@@ -2,6 +2,7 @@ import { AppShell, Burger, Group, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Navbar from '../Navbar/Navbar';
 import { ReactNode } from 'react';
+import ProfileLink from '../Navbar/ProfileLink';
 
 interface BasicAppShellProps {
   children: ReactNode;
@@ -33,7 +34,12 @@ export function BasicAppShell({ children }: BasicAppShellProps) {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        <Navbar />
+        <AppShell.Section grow>
+          <Navbar />
+        </AppShell.Section>
+        <AppShell.Section>
+          <ProfileLink></ProfileLink>
+        </AppShell.Section>
       </AppShell.Navbar>
       <AppShell.Main
         style={{

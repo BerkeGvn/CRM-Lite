@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { NavLink } from '@mantine/core';
-import { TbHome2 } from 'react-icons/tb';
+import { TbHome2, TbUsers, TbTopologyStar } from 'react-icons/tb';
 
 const NavData = [
-  { label: 'Dashboard', icon: <TbHome2 /> },
-  { label: 'Contacts', icon: <TbHome2 /> },
-  { label: 'Orders', icon: <TbHome2 /> },
+  { label: 'Dashboard', icon: <TbHome2 size={22} /> },
+  { label: 'Contacts', icon: <TbUsers size={22} /> },
+  { label: 'Orders', icon: <TbTopologyStar size={22} /> },
 ];
 
 export default function Navbar() {
@@ -20,6 +20,7 @@ export default function Navbar() {
       color="cyan"
       leftSection={link.icon}
       fz="xl"
+      fw={500}
     />
   ));
   return <>{links}</>;
