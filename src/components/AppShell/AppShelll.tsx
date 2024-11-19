@@ -1,8 +1,9 @@
-import { AppShell, Burger, Group, useMantineTheme } from '@mantine/core';
+import { AppShell, Burger, Flex, Group, Title, useMantineColorScheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Navbar from '../Navbar/Navbar';
 import { ReactNode } from 'react';
 import ProfileLink from '../Navbar/ProfileLink';
+import ColorScheme from '../ColorScheme/ColorScheme';
 
 interface BasicAppShellProps {
   children: ReactNode;
@@ -10,9 +11,7 @@ interface BasicAppShellProps {
 
 export function BasicAppShell({ children }: BasicAppShellProps) {
   const [opened, { toggle }] = useDisclosure();
-
-  const theme = useMantineTheme();
-
+  const { colorScheme } = useMantineColorScheme();
   return (
     <AppShell
       header={{ height: 60 }}
@@ -24,13 +23,21 @@ export function BasicAppShell({ children }: BasicAppShellProps) {
           h="100%"
           px="md"
         >
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            hiddenFrom="sm"
-            size="sm"
-          />
-          <h3>Kapia Corp.</h3>
+          <Flex
+            w="100%"
+            justify={'space-between'}
+            align={'center'}
+          >
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              hiddenFrom="sm"
+              size="sm"
+            />
+
+            <Title order={3}>Kapia Corp.</Title>
+            <ColorScheme></ColorScheme>
+          </Flex>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
@@ -41,13 +48,7 @@ export function BasicAppShell({ children }: BasicAppShellProps) {
           <ProfileLink></ProfileLink>
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main
-        style={{
-          backgroundColor: theme.colors.gray[2],
-        }}
-      >
-        {children}
-      </AppShell.Main>
+      <AppShell.Main bg={colorScheme === 'dark' ? 'dark.6' : 'gray.2'}>{children}</AppShell.Main>
     </AppShell>
   );
 }
