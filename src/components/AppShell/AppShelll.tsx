@@ -1,15 +1,11 @@
 import { AppShell, Burger, Flex, Group, Title, useMantineColorScheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Navbar from '../Navbar/Navbar';
-import { ReactNode } from 'react';
 import ProfileLink from '../Navbar/ProfileLink';
 import ColorScheme from '../ColorScheme/ColorScheme';
+import RootLayout from '../../layout/RootLayout';
 
-interface BasicAppShellProps {
-  children: ReactNode;
-}
-
-export function BasicAppShell({ children }: BasicAppShellProps) {
+export function BasicAppShell() {
   const [opened, { toggle }] = useDisclosure();
   const { colorScheme } = useMantineColorScheme();
   return (
@@ -48,7 +44,9 @@ export function BasicAppShell({ children }: BasicAppShellProps) {
           <ProfileLink></ProfileLink>
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main bg={colorScheme === 'dark' ? 'dark.6' : 'gray.2'}>{children}</AppShell.Main>
+      <AppShell.Main bg={colorScheme === 'dark' ? 'dark.6' : 'gray.2'}>
+        <RootLayout />
+      </AppShell.Main>
     </AppShell>
   );
 }
