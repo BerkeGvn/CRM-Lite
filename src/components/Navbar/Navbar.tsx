@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { NavLink } from '@mantine/core';
 import { TbHome2, TbUsers, TbTopologyStar } from 'react-icons/tb';
 

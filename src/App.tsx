@@ -1,6 +1,6 @@
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import { BasicAppShell } from './components/AppShell/AppShelll';
 
 function App() {
