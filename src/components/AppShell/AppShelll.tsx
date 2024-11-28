@@ -1,9 +1,10 @@
 import { AppShell, Burger, Flex, Group, Title, useMantineColorScheme } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import Navbar from '../Navbar/Navbar';
-import ProfileLink from '../Navbar/ProfileLink';
-import ColorScheme from '../ColorScheme/ColorScheme';
+import Navbar from '../navbar/Navbar';
+import ProfileLink from '../navbar/ProfileLink';
+import ColorScheme from '../colorScheme/ColorScheme';
 import RootLayout from '../../layout/RootLayout';
+import { setColorSheme } from '../../utils/themeUtils';
 
 export function BasicAppShell() {
   const [opened, { toggle }] = useDisclosure();
@@ -44,7 +45,7 @@ export function BasicAppShell() {
           <ProfileLink></ProfileLink>
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main bg={colorScheme === 'dark' ? 'dark.6' : 'gray.2'}>
+      <AppShell.Main bg={setColorSheme(colorScheme, 'dark.6', 'gray.1')}>
         <RootLayout />
       </AppShell.Main>
     </AppShell>

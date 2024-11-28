@@ -9,13 +9,14 @@ export default function RootLayout() {
       <Route
         path="/"
         element={<HomePage />}
+        index
       />
       <Route
-        path="/contacts"
+        path="contacts"
         element={<ContactsPage />}
       />
       <Route
-        path="/orders"
+        path="orders"
         element={<OrdersPage />}
       />
     </Routes>
