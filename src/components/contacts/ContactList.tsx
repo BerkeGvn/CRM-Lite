@@ -9,12 +9,14 @@ import {
   ActionIcon,
   useMantineColorScheme,
 } from '@mantine/core';
-import { TbPencil, TbTrash } from 'react-icons/tb';
+import { TbEye, TbTrash } from 'react-icons/tb';
 import { setColorSheme } from '../../utils/themeUtils';
+import { useNavigate } from 'react-router';
 
-export default function ContactList() {
+export default function ContactList({ openModal: openModal }: { openModal: () => void }) {
   const { contacts } = useContactStore();
   const { colorScheme } = useMantineColorScheme();
+  const navigate = useNavigate();
   const rows = contacts.map((contact) => (
     <Table.Tr
       key={contact.id}
@@ -25,6 +27,7 @@ export default function ContactList() {
           <Avatar
             size={30}
             radius={30}
+            src={contact.photo}
           />
           <Text
             fz="sm"
@@ -56,14 +59,18 @@ export default function ContactList() {
       </Table.Td>
       <Table.Td>
         <Group
-          gap={0}
+          gap="xs"
           justify="flex-end"
         >
           <ActionIcon
             variant="subtle"
             color="gray"
+            onClick={() => {
+              openModal();
+              navigate(`/contacts/${contact.id}`);
+            }}
           >
-            <TbPencil />
+            <TbEye />
           </ActionIcon>
           <ActionIcon
             variant="subtle"

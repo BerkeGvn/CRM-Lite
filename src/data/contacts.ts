@@ -1,6 +1,7 @@
 export interface Contact {
   id: number;
   name: string;
+  photo: string | null;
   phone: string;
   email: string;
   title: string;
@@ -12,6 +13,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 1,
     name: 'Alice Johnson',
+    photo: null,
     phone: '555-123-4567',
     email: 'alice.johnson@example.com',
     title: 'Marketing Manager',
@@ -21,6 +23,8 @@ export const dummyContacts: Contact[] = [
   {
     id: 2,
     name: 'Bob Smith',
+    photo:
+      'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     phone: '555-987-6543',
     email: 'bob.smith@example.com',
     title: 'Sales Representative',
@@ -30,6 +34,8 @@ export const dummyContacts: Contact[] = [
   {
     id: 3,
     name: 'Charlie Brown',
+    photo:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
     phone: '555-567-1234',
     email: 'charlie.brown@example.com',
     title: 'Product Manager',
@@ -39,6 +45,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 4,
     name: 'Diana Ross',
+    photo: null,
     phone: '555-432-8765',
     email: 'diana.ross@example.com',
     title: 'HR Specialist',
@@ -48,6 +55,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 5,
     name: 'Edward Norton',
+    photo: null,
     phone: '555-678-9012',
     email: 'edward.norton@example.com',
     title: 'CEO',
@@ -57,6 +65,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 6,
     name: 'Fiona Apple',
+    photo: null,
     phone: '555-234-5678',
     email: 'fiona.apple@example.com',
     title: 'Accountant',
@@ -66,6 +75,8 @@ export const dummyContacts: Contact[] = [
   {
     id: 7,
     name: 'George Clooney',
+
+    photo: null,
     phone: '555-789-0123',
     email: 'george.clooney@example.com',
     title: 'Software Engineer',
@@ -75,6 +86,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 8,
     name: 'Hannah Montana',
+    photo: null,
     phone: '555-345-6789',
     email: 'hannah.montana@example.com',
     title: 'Designer',
@@ -84,6 +96,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 9,
     name: 'Ian McKellen',
+    photo: null,
     phone: '555-901-2345',
     email: 'ian.mckellen@example.com',
     title: 'Business Analyst',
@@ -93,6 +106,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 10,
     name: 'Jane Doe',
+    photo: null,
     phone: '555-456-7890',
     email: 'jane.doe@example.com',
     title: 'Operations Manager',
@@ -102,6 +116,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 11,
     name: 'John Smith',
+    photo: null,
     phone: '555-987-6543',
     email: 'john.smith@example.com',
     title: 'Data Scientist',
@@ -111,6 +126,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 12,
     name: 'Emily Davis',
+    photo: null,
     phone: '555-876-5432',
     email: 'emily.davis@example.com',
     title: 'Sales Manager',
@@ -120,6 +136,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 13,
     name: 'Michael Johnson',
+    photo: null,
     phone: '555-234-8765',
     email: 'michael.johnson@example.com',
     title: 'Consultant',
@@ -129,6 +146,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 14,
     name: 'Sarah Connor',
+    photo: null,
     phone: '555-123-7890',
     email: 'sarah.connor@example.com',
     title: 'IT Specialist',
@@ -138,6 +156,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 15,
     name: 'Tom Hanks',
+    photo: null,
     phone: '555-543-2109',
     email: 'tom.hanks@example.com',
     title: 'Executive',
@@ -147,6 +166,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 16,
     name: 'Laura Wilson',
+    photo: null,
     phone: '555-654-9876',
     email: 'laura.wilson@example.com',
     title: 'Creative Director',
@@ -156,6 +176,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 17,
     name: 'Chris Pratt',
+    photo: null,
     phone: '555-765-4321',
     email: 'chris.pratt@example.com',
     title: 'Team Lead',
@@ -165,6 +186,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 18,
     name: 'Sophia Turner',
+    photo: null,
     phone: '555-876-1234',
     email: 'sophia.turner@example.com',
     title: 'UX Designer',
@@ -174,6 +196,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 19,
     name: 'Ethan Hunt',
+    photo: null,
     phone: '555-321-7654',
     email: 'ethan.hunt@example.com',
     title: 'Operations Coordinator',
@@ -183,6 +206,7 @@ export const dummyContacts: Contact[] = [
   {
     id: 20,
     name: 'Megan Fox',
+    photo: null,
     phone: '555-210-6543',
     email: 'megan.fox@example.com',
     title: 'Recruiter',
