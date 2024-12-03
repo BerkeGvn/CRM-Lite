@@ -19,6 +19,7 @@ export default function ContactsPage() {
             close();
             navigate(-1);
           }}
+          c="dimmed"
           title="Contact Details"
         >
           <Outlet />

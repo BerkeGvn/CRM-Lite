@@ -1,26 +1,16 @@
 import useContactStore from '../../stores/contactStore';
-import {
-  Table,
-  Group,
-  Avatar,
-  Text,
-  Badge,
-  Anchor,
-  ActionIcon,
-  useMantineColorScheme,
-} from '@mantine/core';
+import { Table, Group, Avatar, Text, Badge, Anchor, ActionIcon } from '@mantine/core';
 import { TbEye, TbTrash } from 'react-icons/tb';
-import { setColorSheme } from '../../utils/themeUtils';
 import { useNavigate } from 'react-router';
+import classes from './contact.module.css';
 
 export default function ContactList({ openModal: openModal }: { openModal: () => void }) {
   const { contacts } = useContactStore();
-  const { colorScheme } = useMantineColorScheme();
   const navigate = useNavigate();
   const rows = contacts.map((contact) => (
     <Table.Tr
       key={contact.id}
-      bg={setColorSheme(colorScheme, 'dark.7', 'gray.0')}
+      className={classes.tableMain}
     >
       <Table.Td>
         <Group gap="sm">
@@ -87,7 +77,7 @@ export default function ContactList({ openModal: openModal }: { openModal: () =>
     <Table.ScrollContainer minWidth={800}>
       <Table verticalSpacing="sm">
         <Table.Thead>
-          <Table.Tr bg={setColorSheme(colorScheme, 'dark.5', 'gray.2')}>
+          <Table.Tr className={classes.tableHeader}>
             <Table.Th>Employee</Table.Th>
             <Table.Th>Job title</Table.Th>
             <Table.Th>Email</Table.Th>
