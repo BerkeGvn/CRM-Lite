@@ -1,4 +1,5 @@
 import { Stack, Text, Button, Group } from '@mantine/core';
+import { TbPencil } from 'react-icons/tb';
 
 export default function ContactDetail({
   label,
@@ -13,13 +14,23 @@ export default function ContactDetail({
     <Stack gap={0}>
       <Text c="dimmed">{label}</Text>
       <Group gap="sm">
-        <Text size="sm">{value || 'Not available'}</Text>
+        {value ? (
+          <Text size="sm">{value}</Text>
+        ) : (
+          <Text
+            c="red.6"
+            size="sm"
+          >
+            {'Not available'}
+          </Text>
+        )}
         <Button
           size="xs"
           variant="subtle"
+          color="cyan"
           onClick={onEdit}
         >
-          Edit
+          <TbPencil size={20} />
         </Button>
       </Group>
     </Stack>

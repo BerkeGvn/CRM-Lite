@@ -18,7 +18,7 @@ export const dummyContacts: Contact[] = [
     email: 'alice.johnson@example.com',
     title: 'Marketing Manager',
     company: 'ABC Corp',
-    dealStatus: 'In Progress',
+    dealStatus: 'new',
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const dummyContacts: Contact[] = [
     email: 'bob.smith@example.com',
     title: 'Sales Representative',
     company: 'XYZ Ltd',
-    dealStatus: 'Closed-Won',
+    dealStatus: 'won',
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ export const dummyContacts: Contact[] = [
     email: 'charlie.brown@example.com',
     title: 'Product Manager',
     company: 'Tech Innovations',
-    dealStatus: 'Lost',
+    dealStatus: 'lost',
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ export const dummyContacts: Contact[] = [
     email: 'diana.ross@example.com',
     title: 'HR Specialist',
     company: 'Global Solutions',
-    dealStatus: 'In Progress',
+    dealStatus: 'negotiation',
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ export const dummyContacts: Contact[] = [
     email: 'edward.norton@example.com',
     title: 'CEO',
     company: 'Future Enterprises',
-    dealStatus: 'Closed-Won',
+    dealStatus: 'on_hold',
   },
   {
     id: 6,
@@ -70,7 +70,7 @@ export const dummyContacts: Contact[] = [
     email: 'fiona.apple@example.com',
     title: 'Accountant',
     company: 'Finance Pros',
-    dealStatus: 'Lost',
+    dealStatus: 'lost',
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ export const dummyContacts: Contact[] = [
     email: 'george.clooney@example.com',
     title: 'Software Engineer',
     company: 'CodeCraft',
-    dealStatus: 'In Progress',
+    dealStatus: 'contacted',
   },
   {
     id: 8,
@@ -91,7 +91,7 @@ export const dummyContacts: Contact[] = [
     email: 'hannah.montana@example.com',
     title: 'Designer',
     company: 'Creative Studio',
-    dealStatus: 'Closed-Won',
+    dealStatus: 'won',
   },
   {
     id: 9,
@@ -101,7 +101,7 @@ export const dummyContacts: Contact[] = [
     email: 'ian.mckellen@example.com',
     title: 'Business Analyst',
     company: 'Market Insights',
-    dealStatus: 'In Progress',
+    dealStatus: 'qualified',
   },
   {
     id: 10,
@@ -111,7 +111,7 @@ export const dummyContacts: Contact[] = [
     email: 'jane.doe@example.com',
     title: 'Operations Manager',
     company: 'Logistics Plus',
-    dealStatus: 'Lost',
+    dealStatus: 'unqualified',
   },
   {
     id: 11,
@@ -121,7 +121,7 @@ export const dummyContacts: Contact[] = [
     email: 'john.smith@example.com',
     title: 'Data Scientist',
     company: 'AI World',
-    dealStatus: 'In Progress',
+    dealStatus: 'qualified',
   },
   {
     id: 12,
@@ -131,7 +131,7 @@ export const dummyContacts: Contact[] = [
     email: 'emily.davis@example.com',
     title: 'Sales Manager',
     company: 'Retail Hub',
-    dealStatus: 'Closed-Won',
+    dealStatus: 'won',
   },
   {
     id: 13,
@@ -141,7 +141,7 @@ export const dummyContacts: Contact[] = [
     email: 'michael.johnson@example.com',
     title: 'Consultant',
     company: 'Strategic Partners',
-    dealStatus: 'Lost',
+    dealStatus: 'new',
   },
   {
     id: 14,
@@ -151,7 +151,7 @@ export const dummyContacts: Contact[] = [
     email: 'sarah.connor@example.com',
     title: 'IT Specialist',
     company: 'Cyberdyne Systems',
-    dealStatus: 'In Progress',
+    dealStatus: 'qualified',
   },
   {
     id: 15,
@@ -161,7 +161,7 @@ export const dummyContacts: Contact[] = [
     email: 'tom.hanks@example.com',
     title: 'Executive',
     company: 'Global Ventures',
-    dealStatus: 'Closed-Won',
+    dealStatus: 'on_hold',
   },
   {
     id: 16,
@@ -171,7 +171,7 @@ export const dummyContacts: Contact[] = [
     email: 'laura.wilson@example.com',
     title: 'Creative Director',
     company: 'AdWorks',
-    dealStatus: 'Lost',
+    dealStatus: 'lost',
   },
   {
     id: 17,
@@ -181,7 +181,7 @@ export const dummyContacts: Contact[] = [
     email: 'chris.pratt@example.com',
     title: 'Team Lead',
     company: 'Rocket Solutions',
-    dealStatus: 'In Progress',
+    dealStatus: 'won',
   },
   {
     id: 18,
@@ -191,7 +191,7 @@ export const dummyContacts: Contact[] = [
     email: 'sophia.turner@example.com',
     title: 'UX Designer',
     company: 'Web Wonders',
-    dealStatus: 'Closed-Won',
+    dealStatus: 'qualified',
   },
   {
     id: 19,
@@ -201,7 +201,7 @@ export const dummyContacts: Contact[] = [
     email: 'ethan.hunt@example.com',
     title: 'Operations Coordinator',
     company: 'Mission Corp',
-    dealStatus: 'In Progress',
+    dealStatus: 'on_hold',
   },
   {
     id: 20,
@@ -211,7 +211,7 @@ export const dummyContacts: Contact[] = [
     email: 'megan.fox@example.com',
     title: 'Recruiter',
     company: 'HR Excellence',
-    dealStatus: 'Lost',
+    dealStatus: 'qualified',
   },
   // Add more entries following the same structure as above.
 ];

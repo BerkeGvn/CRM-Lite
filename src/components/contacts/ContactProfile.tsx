@@ -9,7 +9,7 @@ import classes from './contact.module.css';
 
 export default function ContactProfile() {
   const { id } = useParams();
-  const { findContact } = useContactStore();
+  const { findContact, updateContact } = useContactStore();
   const contact = findContact(Number(id));
 
   const [editingField, setEditingField] = useState<keyof Contact | null>(null);
@@ -19,7 +19,7 @@ export default function ContactProfile() {
   }
 
   const handleFieldSave = (field: keyof typeof contact, value: string) => {
-    console.log(field, value);
+    updateContact(Number(id), { ...contact, [field]: value });
     setEditingField(null); // Exit edit mode
   };
 
