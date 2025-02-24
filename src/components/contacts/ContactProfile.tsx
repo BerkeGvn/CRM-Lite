@@ -1,11 +1,47 @@
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import useContactStore from '../../stores/contactStore';
-import { Card, Avatar, Title, Stack, Group, Divider } from '@mantine/core';
+import { Card, Avatar, Title, Stack, Group, Divider, Flex, Container } from '@mantine/core';
 import ContactDetail from './ContactDetail';
 import ContactEdit from './ContactEdit';
 import { Contact } from '../../data/contacts';
 import classes from './contact.module.css';
+
+interface EditableFieldProps {
+  field: keyof Contact;
+  label?: string;
+  value: string;
+  editingField: keyof Contact | null;
+  setEditingField: (field: keyof Contact | null) => void;
+  handleFieldSave: (field: keyof Contact, value: string) => void;
+  title?: boolean;
+}
+
+const EditableField = ({
+  field,
+  label,
+  value,
+  editingField,
+  setEditingField,
+  handleFieldSave,
+  title,
+}: EditableFieldProps) => {
+  return editingField === field ? (
+    <ContactEdit
+      label={label}
+      value={value}
+      onSave={(value) => handleFieldSave(field, value)}
+      onCancel={() => setEditingField(null)}
+    />
+  ) : (
+    <ContactDetail
+      label={label}
+      value={value}
+      onEdit={() => setEditingField(field)}
+      title={title}
+    />
+  );
+};
 
 export default function ContactProfile() {
   const { id } = useParams();
@@ -30,81 +66,66 @@ export default function ContactProfile() {
       withBorder
       className={classes.card}
     >
-      <Group
-        align="center"
-        gap="lg"
-        mb="lg"
-      >
-        <Avatar
-          size={120}
-          radius={120}
-          src={contact.photo}
-          alt={contact.name}
-        />
-        <Title order={2}>{contact.name}</Title>
-      </Group>
-      <Divider my="sm" />
-      <Stack gap="lg">
-        {editingField === 'company' ? (
-          <ContactEdit
-            label="Company"
-            value={contact.company}
-            onSave={(value) => handleFieldSave('company', value)}
-            onCancel={() => setEditingField(null)}
-          />
-        ) : (
-          <ContactDetail
-            label="Company"
-            value={contact.company}
-            onEdit={() => setEditingField('company')}
-          />
-        )}
+      <Flex>
+        <Container flex="1">
+          <Group
+            align="center"
+            gap="lg"
+            mb="lg"
+          >
+            <Avatar
+              size={120}
+              radius={120}
+              src={contact.photo}
+              alt={contact.name}
+            />
+            <EditableField
+              field="name"
+              value={contact.name}
+              editingField={editingField}
+              setEditingField={setEditingField}
+              handleFieldSave={handleFieldSave}
+              title={true}
+            />
+          </Group>
+          <Divider my="sm" />
 
-        {editingField === 'title' ? (
-          <ContactEdit
-            label="Title"
-            value={contact.title}
-            onSave={(value) => handleFieldSave('title', value)}
-            onCancel={() => setEditingField(null)}
-          />
-        ) : (
-          <ContactDetail
-            label="Title"
-            value={contact.title}
-            onEdit={() => setEditingField('title')}
-          />
-        )}
-
-        {editingField === 'phone' ? (
-          <ContactEdit
-            label="Phone Number"
-            value={contact.phone}
-            onSave={(value) => handleFieldSave('phone', value)}
-            onCancel={() => setEditingField(null)}
-          />
-        ) : (
-          <ContactDetail
-            label="Phone Number"
-            value={contact.phone}
-            onEdit={() => setEditingField('phone')}
-          />
-        )}
-
-        {editingField === 'email' ? (
-          <ContactEdit
-            label="Email"
-            value={contact.email}
-            onSave={(value) => handleFieldSave('email', value)}
-            onCancel={() => setEditingField(null)}
-          />
-        ) : (
-          <ContactDetail
-            label="Email"
-            value={contact.email}
-            onEdit={() => setEditingField('email')}
-          />
-        )}
-      </Stack>
+          <Stack gap="lg">
+            <EditableField
+              field="company"
+              label="Company"
+              value={contact.company}
+              editingField={editingField}
+              setEditingField={setEditingField}
+              handleFieldSave={handleFieldSave}
+            />
+            <EditableField
+              field="title"
+              label="Title"
+              value={contact.title}
+              editingField={editingField}
+              setEditingField={setEditingField}
+              handleFieldSave={handleFieldSave}
+            />
+            <EditableField
+              field="phone"
+              label="Phone Number"
+              value={contact.phone}
+              editingField={editingField}
+              setEditingField={setEditingField}
+              handleFieldSave={handleFieldSave}
+            />
+            <EditableField
+              field="email"
+              label="Email"
+              value={contact.email}
+              editingField={editingField}
+              setEditingField={setEditingField}
+              handleFieldSave={handleFieldSave}
+            />
+          </Stack>
+        </Container>
+      </Flex>
     </Card>
   );
 }

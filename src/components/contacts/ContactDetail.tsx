@@ -1,21 +1,28 @@
-import { Stack, Text, Button, Group } from '@mantine/core';
+import { Stack, Text, Button, Group, Title } from '@mantine/core';
 import { TbPencil } from 'react-icons/tb';
 
 export default function ContactDetail({
   label,
   value,
   onEdit,
+  title = false,
 }: {
-  label: string;
+  label?: string;
   value: string | undefined;
   onEdit: () => void;
+  title?: boolean;
 }) {
+  // according to the title prop, we want to display the value as a title or normal text
   return (
     <Stack gap={0}>
       <Text c="dimmed">{label}</Text>
-      <Group gap="sm">
+      <Group gap="md">
         {value ? (
-          <Text size="sm">{value}</Text>
+          title ? (
+            <Title order={2}>{value}</Title>
+          ) : (
+            <Text size="sm">{value}</Text>
+          )
         ) : (
           <Text
             c="red.6"
@@ -27,10 +34,10 @@ export default function ContactDetail({
         <Button
           size="xs"
           variant="subtle"
-          color="cyan"
+          color="gray"
           onClick={onEdit}
         >
-          <TbPencil size={20} />
+          <TbPencil size={18} />
         </Button>
       </Group>
     </Stack>

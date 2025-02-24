@@ -5,6 +5,10 @@ export default function ContactStatus({ contactStatus }: { contactStatus: string
   const status = dealStatus.find((status) => status.value === contactStatus);
   let badgeColor = 'gray';
 
+  if (!status) {
+    return <Badge color={badgeColor}>-</Badge>;
+  }
+
   switch (status?.value) {
     case 'new':
       badgeColor = 'cyan';
@@ -32,10 +36,6 @@ export default function ContactStatus({ contactStatus }: { contactStatus: string
       break;
     default:
       badgeColor = 'gray';
-  }
-
-  if (!status) {
-    return <Badge color={badgeColor}>-</Badge>;
   }
 
   return (

@@ -1,6 +1,6 @@
 import useContactStore from '../../stores/contactStore';
-import ContactStatus from './ContactStatus';
-import { Table, Group, Avatar, Text, Badge, Anchor, ActionIcon } from '@mantine/core';
+import ContactStatus from './ContactListStatus';
+import { Table, Group, Avatar, Text, Badge, ActionIcon } from '@mantine/core';
 import { TbEye, TbTrash } from 'react-icons/tb';
 import { useNavigate } from 'react-router';
 import classes from './contact.module.css';
@@ -38,14 +38,7 @@ export default function ContactList({ openModal: openModal }: { openModal: () =>
         </Badge>
       </Table.Td>
       <Table.Td>{contact.company}</Table.Td>
-      <Table.Td>
-        <Anchor
-          component="button"
-          size="sm"
-        >
-          {contact.email}
-        </Anchor>
-      </Table.Td>
+      <Table.Td>{contact.email}</Table.Td>
       <Table.Td>
         <ContactStatus contactStatus={contact.dealStatus} />
       </Table.Td>

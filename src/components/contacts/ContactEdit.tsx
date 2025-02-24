@@ -7,7 +7,7 @@ export default function EditableField({
   onSave,
   onCancel,
 }: {
-  label: string;
+  label?: string;
   value: string | undefined;
   onSave: (newValue: string) => void;
   onCancel: () => void;

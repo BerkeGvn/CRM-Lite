@@ -10,6 +10,7 @@ const NavData = [
 ];
 
 export default function Navbar() {
+  //fixme: fix the active link
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
   const links = NavData.map((link, index) => (
