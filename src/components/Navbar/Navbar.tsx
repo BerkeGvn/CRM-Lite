@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { NavLink } from '@mantine/core';
 import { TbHome2, TbUsers, TbTopologyStar } from 'react-icons/tb';
@@ -10,9 +10,17 @@ const NavData = [
 ];
 
 export default function Navbar() {
-  //fixme: fix the active link
-  const [active, setActive] = useState(0);
+  //using local storage to save the active link index becacuse NavLink is not from react-router
+  const [active, setActive] = useState(() => {
+    const savedIndex = localStorage.getItem('activeLinkIndex');
+    return savedIndex !== null ? parseInt(savedIndex, 10) : 0;
+  });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem('activeLinkIndex', active.toString());
+  }, [active]);
+
   const links = NavData.map((link, index) => (
     <NavLink
       key={link.label}
